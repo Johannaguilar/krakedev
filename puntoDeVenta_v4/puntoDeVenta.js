@@ -84,7 +84,7 @@ calcularValorTotal = function () {
     /*
         Ejemplo: 
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
-        Si funciona, hacer un commit
+        Si funciona, hacer un commit listo
     */
 
 }

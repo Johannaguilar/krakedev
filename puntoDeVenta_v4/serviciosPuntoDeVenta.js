@@ -1,4 +1,4 @@
-calcularValorDescuento=function(monto,porcentajeDescuento){
+calcularValorDescuento=function(monto,porcentajeDescuento,subtotal){
     return (monto * porcentajeDescuento )/100;
 }
 calcularIVA=function(monto){

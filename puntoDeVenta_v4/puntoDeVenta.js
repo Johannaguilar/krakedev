@@ -7,7 +7,7 @@ calcularValorTotal = function () {
 
     //variables para almacenar los retornos de las funciones
     let valorSubtotal=calcularSubTotal(precioProducto,cantidad);
-    let valorDescuento=calcularValorDescuento(precioProducto,porcentajeDescuento);
+    let valorDescuento=calcularValorDescuento(valorSubtotal,porcentajeDescuento);
     let valorIVA=calcularIVA(precioProducto);
     let valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
 
@@ -19,18 +19,19 @@ calcularValorTotal = function () {
     //4. Invocar a calcularSubtotal y el retorno guardar en la variable valorSubtotal listo
     // Tomar en cuenta el orden de como pasa los parametos de la funcion y colocar bien
     // los parametros cuando invoca la funcion. listo
-    //5. Mostrar valorSubtotal en el componente lblSubtotal
+    //5. Mostrar valorSubtotal en el componente lblSubtotal listo
     mostrarTexto("lblSubtotal",valorSubtotal);
-    // Utilizar mostrarTexto
+    // Utilizar mostrarTexto listo
         /*
         Caso de prueba: 
             - cantidad: 10
             - precioProducto: 5.4  
             Subtotal esperado: 54
-        Si el caso de prueba es exitoso, hacer un commit
+        Si el caso de prueba es exitoso, hacer un commit listo
      */
-    //6. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento
+    //6. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento listo
     //7. Mostrar el resultado en el componente lblDescuento
+    mostrarTexto("lblDescuento",valorDescuento);
     /*
         Caso de prueba: 
             - cantidad: 10 

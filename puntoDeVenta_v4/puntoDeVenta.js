@@ -8,7 +8,9 @@ calcularValorTotal = function () {
     //variables para almacenar los retornos de las funciones
     let valorSubtotal=calcularSubTotal(precioProducto,cantidad);
     let valorDescuento=calcularValorDescuento(valorSubtotal,porcentajeDescuento);
-    let valorIVA=calcularIVA(precioProducto);
+    let valorTotalDescuento=valorSubtotal-valorDescuento;
+    let valorIVA=calcularIVA(valorTotalDescuento);
+    let ivaFormateado=valorIVA.toFixed(3);
     let valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
 
     //1. Recuperar el nombre del producto como String listo
@@ -38,11 +40,12 @@ calcularValorTotal = function () {
             - precioProducto: 5.4  
             - descuento: 10
             - Descuento esperado: 5.4
-        Si el caso de prueba es exitoso, hacer un commit
+        Si el caso de prueba es exitoso, hacer un commit listo
      */
-    //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
+    //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA listo
     // El IVA debe calcularse sobre el valor del subtotal menos el descuento
-    //9. Mostrar el resultado en el componente lblValorIVA    
+    //9. Mostrar el resultado en el componente lblValorIVA  
+    mostrarTexto("lblValorIVA",ivaFormateado);
         /*
             Caso de prueba: 
                 - cantidad: 10 

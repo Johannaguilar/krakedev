@@ -5,11 +5,18 @@ calcularPromedioNotas=function(){
     let promedio=calcularPromedio(n1,n2,n3);
     let promedioModificado=promedio.toFixed(2);
     cambiarTexto("lblpromedio",promedioModificado);
-    if(promedioModificado>=7){
-        cambiarImagen("imagen","./img/exito.gif");
-
-    }else{
+    if(promedioModificado<5 && promedioModificado >0){
         cambiarImagen("imagen","./img/fracaso.gif");
+        cambiarTexto("lblmensaje","REPROBADO");
+    }else if(promedioModificado>=5 && promedioModificado<=8){
+        cambiarImagen("imagen","./img/buenTrabajo.gif");
+        cambiarTexto("lblmensaje","BUEN TRABAJO");
+    }else if(promedioModificado>=8 && promedioModificado<=10){
+        cambiarImagen("imagen","./img/exelente.gif");
+        cambiarTexto("lblmensaje","EXELENTE");
+    }else{
+        cambiarImagen("imagen","./img/incorrecto.gif");
+        cambiarTexto("lblmensaje","DATO INCORRECTO");
     }
 
 

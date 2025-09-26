@@ -11,3 +11,4 @@ calcularTotal=function(subtotal,descuento,iva){
     return subtotal-descuento+iva;
 }
 
+

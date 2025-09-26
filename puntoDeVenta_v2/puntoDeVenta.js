@@ -3,15 +3,15 @@ calcularValorTotal = function () {
     let nombreProducto=recuperarTexto("txtProducto");
     let precioProducto=recuperarFloat("txtPrecio"); // SE UTILIZA PARA RECUPERAR EL PRECIO COMO FLOAT
     let cantidad=recuperarInt("txtCantidad"); // SE UTILIZA PARA RECUPERAR LA CANTIDAD COMO INT
-    let porcentajeDescuento=recuperarInt("txtPorcentajeDescuento");
+    
 
     //variables para almacenar los retornos de las funciones
     let valorSubtotal=calcularSubTotal(precioProducto,cantidad);
-    let valorDescuento=calcularValorDescuento(valorSubtotal,porcentajeDescuento);
-    let valorTotalDescuento=valorSubtotal-valorDescuento;
-    let valorIVA=calcularIVA(valorTotalDescuento);
+    let valorDescuento
+    let valorTotalDescuento
+    let valorIVA=calcularIVA();
     let ivaFormateado=valorIVA.toFixed(3);
-    let valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
+    let valorTotal=calcularTotal();
 
     //1. Recuperar el nombre del producto como String listo
     //2. Recuperar el precio como floatlisto

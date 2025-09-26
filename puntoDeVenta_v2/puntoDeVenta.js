@@ -7,11 +7,11 @@ calcularValorTotal = function () {
 
     //variables para almacenar los retornos de las funciones
     let valorSubtotal=calcularSubTotal(precioProducto,cantidad);
-    let valorDescuento
-    let valorTotalDescuento
-    let valorIVA=calcularIVA();
-    let ivaFormateado=valorIVA.toFixed(3);
-    let valorTotal=calcularTotal();
+    let valorDescuento=calcularDescuentoPorVolumen(valorSubtotal,cantidad);
+    let valorTotalDescuento=valorSubtotal-valorDescuento;
+    let valorIVA=calcularIVA(valorTotalDescuento);
+    let ivaFormateado=valorIVA.toFixed(1);
+    let valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
 
     //1. Recuperar el nombre del producto como String listo
     //2. Recuperar el precio como floatlisto

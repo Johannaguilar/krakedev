@@ -18,7 +18,7 @@ productoValido=function(campo,idComponenteError){
         mostrarTexto(idComponenteError,"");
     }
     
-    return hayErrores;
+    return !hayErrores;
 }
 esCantidadValida=function(campo,idComponenteError){
     let hayErrores=false;

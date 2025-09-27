@@ -1,10 +1,11 @@
 calcularValorTotal = function () {
     //variables para recuperar los valores de las cajas de texto
     let nombreProducto=recuperarTexto("txtProducto");
+    
     let precioProducto=recuperarFloat("txtPrecio"); // SE UTILIZA PARA RECUPERAR EL PRECIO COMO FLOAT
+    
     let cantidad=recuperarInt("txtCantidad"); // SE UTILIZA PARA RECUPERAR LA CANTIDAD COMO INT
     
-
     //variables para almacenar los retornos de las funciones
     let valorSubtotal=calcularSubTotal(precioProducto,cantidad);
     let valorDescuento=calcularDescuentoPorVolumen(valorSubtotal,cantidad);
@@ -12,7 +13,19 @@ calcularValorTotal = function () {
     let valorIVA=calcularIVA(valorTotalDescuento);
     let ivaFormateado=valorIVA.toFixed(1);
     let valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
-
+    productoValido(nombreProducto,"lblError1");
+    esPrecioValido(precioProducto,"lblError3");
+    esCantidadValida(cantidad,"lblError2");
+if(productoValido(nombreProducto,"lblError1")&esPrecioValido(precioProducto,"lblError3")&esCantidadValida(cantidad,"lblError2")){
+        mostrarTexto("lblSubtotal",valorSubtotal);
+        mostrarTexto("lblDescuento",valorDescuento);
+        mostrarTexto("lblValorIVA",ivaFormateado);
+        mostrarTexto("lblTotal",valorTotal);
+        mostrarTexto("lblResumen","valor a pagar por "+cantidad+" "+nombreProducto+" "+"con "+porcentajeDescuento+"%"+" "+"de descuento "+"y "+ "12% de iva: "+"USD "+valorTotal);
+        
+    }else{
+        mostrarTexto("lblResultado","0.0");
+    }
     //1. Recuperar el nombre del producto como String listo
     //2. Recuperar el precio como floatlisto
     //3. Recuperar cantidad como int listo
@@ -22,7 +35,6 @@ calcularValorTotal = function () {
     // Tomar en cuenta el orden de como pasa los parametos de la funcion y colocar bien
     // los parametros cuando invoca la funcion. listo
     //5. Mostrar valorSubtotal en el componente lblSubtotal listo
-    mostrarTexto("lblSubtotal",valorSubtotal);
     // Utilizar mostrarTexto listo
         /*
         Caso de prueba: 
@@ -33,7 +45,7 @@ calcularValorTotal = function () {
      */
     //6. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento listo
     //7. Mostrar el resultado en el componente lblDescuento
-    mostrarTexto("lblDescuento",valorDescuento);
+    
     /*
         Caso de prueba: 
             - cantidad: 10 
@@ -45,7 +57,7 @@ calcularValorTotal = function () {
     //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA listo
     // El IVA debe calcularse sobre el valor del subtotal menos el descuento
     //9. Mostrar el resultado en el componente lblValorIVA  listo
-    mostrarTexto("lblValorIVA",ivaFormateado);
+    
         /*
             Caso de prueba: 
                 - cantidad: 10 
@@ -63,7 +75,7 @@ calcularValorTotal = function () {
         */
     //10. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal listo
     //11. Mostrar el resultado en el componente lblTotal
-    mostrarTexto("lblTotal",valorTotal);
+    
     /*
         Caso de prueba: 
             - cantidad: 10
@@ -80,7 +92,7 @@ calcularValorTotal = function () {
        */
             
     //12. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
-    mostrarTexto("lblResumen","valor a pagar por "+cantidad+" "+nombreProducto+" "+"con "+porcentajeDescuento+"%"+" "+"de descuento "+"y "+ "12% de iva: "+"USD "+valorTotal);
+    
     /*
         Ejemplo: 
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75

@@ -4,7 +4,7 @@ calcularValorTotal = function () {
     
     let precioProducto=recuperarFloat("txtPrecio"); // SE UTILIZA PARA RECUPERAR EL PRECIO COMO FLOAT
     
-    let cantidad=recuperarInt("txtCantidad"); // SE UTILIZA PARA RECUPERAR LA CANTIDAD COMO INT
+    let cantidad=recuperarFloat("txtCantidad"); // SE UTILIZA PARA RECUPERAR LA CANTIDAD COMO INT
     
     //variables para almacenar los retornos de las funciones
     let valorSubtotal=calcularSubTotal(precioProducto,cantidad);

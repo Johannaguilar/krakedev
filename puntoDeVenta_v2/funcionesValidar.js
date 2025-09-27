@@ -31,28 +31,22 @@ esCantidadValida=function(campo,idComponenteError){
         mostrarTexto(idComponenteError,"DEBE SER UN NUMERO ENTRE 1 Y 100");
         hayErrores=true;
     }
-    if(campo==null){
+    if(isNaN(campo)){
         mostrarTexto(idComponenteError,"CAMPO OBLIGATORIO");
         hayErrores=true;
     }
-    if(isNaN(campo)){
-        mostrarTexto(idComponenteError,"DEBE INGRESAR UN NUMERO ENTERO");
-        hayErrores=true;
-    }
+    
     
     return !hayErrores;
 }
 esPrecioValido=function(campo,idComponenteError){
     let hayErrores=false;
-    if(campo>50){
+    if(campo<=0 || campo>50){
         mostrarTexto(idComponenteError,"DEBE SER UN NUMERO ENTRE 1 Y 50");
         hayErrores=true;
     }
-    if(campo==0){
+    if(isNaN(campo)){
         mostrarTexto(idComponenteError,"CAMPO OBLIGATORIO");
-        hayErrores=true;
-    }if(isNaN(campo)){
-        mostrarTexto(idComponenteError,"DEBE INGRESAR UN NUMERO");
         hayErrores=true;
     }
     return !hayErrores;

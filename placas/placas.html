@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="placas.js"></script>
+    <script src="servicioPlacas.js"></script>
+    <script src="utilitariosCadenas.js"></script>
+    <script src="utilitarios.js"></script>
+    <link href="placas.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="principal">
+        <div class="contenido">
+            <div>
+                <img src="logoKrakeDev.png" width="200px" class="logoescuela"/>
+            </div>
+            <div class="areaResultado">
+                <div>
+                <label class="titulo">Ingrese la placa</label>
+            </div>
+            <div>
+                <input type="text" id="placa" class="caja"/>
+                <input type="button" value="validar" onclick="validarPlaca();" class="estiloBoton">
+            </div>
+            <div class="titulo">
+                <label id="erroresValidacion" class="error"></label>
+            </div>
+            <div class="titulo">
+                <label id="validarPlacaMensaje"></label>
+            </div>
+            <div class="titulo">
+                <label>PROVINCIA:</label>
+                <label id="provincia"></label>
+            </div>
+            <div class="titulo">
+                <label>TIPO DE VEHICULO:</label>
+                <label id="Vehiculo"></label>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

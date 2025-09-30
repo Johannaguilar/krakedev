@@ -3,6 +3,7 @@ validarPlaca=function(){
     let erroresEstructura=validarEstructura(valorCaja);
     let Provincia=obtenerProvincia(valorCaja);
     let TipoVehiculo=obtenerTipoVehiculo(valorCaja);
+    let picoYPlaca=obtenerDiaPicoYPlaca(valorCaja);
     if(erroresEstructura==null){
         mostrarTexto("erroresValidacion","");
         mostrarTexto("provincia","");
@@ -14,12 +15,17 @@ validarPlaca=function(){
         }else{
             mostrarTexto("provincia","PROVINCIA INCORRECTA");
         }
-    if(TipoVehiculo!=null){
+        if(TipoVehiculo!=null){
         mostrarTexto("Vehiculo",TipoVehiculo);
 
-    }else{
+        }else{
         mostrarTexto("Vehiculo","VEHICULO INCORRECTO");
-    }
+        }
+        if(picoYPlaca!=null){
+            mostrarTexto("picoYPaca",picoYPlaca);
+        }else{
+            mostrarTexto("picoYPaca","ERROR");
+        }
     }else{
         mostrarTexto("erroresValidacion",erroresEstructura);
         mostrarTexto("validarPlacaMensaje","ESTRUCTURA INCORRECTA");
@@ -34,6 +40,19 @@ validarPlaca=function(){
         }else{
             mostrarTexto("Vehiculo","VEHICULO INCORRECTO");
         }
+        if(picoYPlaca!=null){
+            mostrarTexto("picoYPaca",picoYPlaca);
+        }else{
+            mostrarTexto("picoYPaca","ERROR");
+        }
     }
 
+}
+limpiar=function(){
+    mostrarTexto("validarPlacaMensaje","");
+    mostrarTexto("provincia","");
+    mostrarTexto("Vehiculo","");
+    mostrarTexto("picoYPaca","");
+    mostrarTexto("erroresValidacion","");
+    mostrarTextoEnCaja("placa","");
 }

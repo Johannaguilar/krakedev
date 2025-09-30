@@ -24,7 +24,7 @@ validarEstructura=function(placa){
         noHayErrores=false;
         return "LA PLACA DEBE TENER 7 U 8 CARACTERES";
     }
-    if(longitudPlaca<8||longitudPlaca>8 ){
+    if(longitudPlaca<8 ){
     if(validacionMayuscula1==false){
         noHayErrores=false;
         return "EL PRIMER CARACTER DEBE SER UNA MAYUSCULA";
@@ -58,7 +58,7 @@ validarEstructura=function(placa){
     }
     
     
-    }else if(longitudPlaca<9||longitudPlaca>9 ){
+    }else if(longitudPlaca<9 ){
     if(validacionMayuscula1==false){
         noHayErrores=false;
         return "EL PRIMER CARACTER DEBE SER UNA MAYUSCULA";
@@ -201,4 +201,51 @@ obtenerTipoVehiculo=function(placa){
         return null;
     }
 
+}
+obtenerDiaPicoYPlaca=function(placa){
+    let longitudPlaca=placa.length;
+    let ultimodijito7;
+    let ultimodijito8;
+    let codeAcsii;
+    if(longitudPlaca==7){
+        ultimodijito7=placa.charAt(6);
+        codeAcsii=ultimodijito7.charCodeAt(0);
+        
+    }else if(longitudPlaca==8){
+        ultimodijito8=placa.charAt(7);
+        codeAcsii=ultimodijito8.charCodeAt(0);
+    }
+    
+    
+    if(longitudPlaca<8){
+        if(codeAcsii>=48&&codeAcsii<=57){
+        if(codeAcsii==49 || codeAcsii==50){
+            return "LUNES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }if(codeAcsii==51 || codeAcsii==52){
+            return "MARTES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }if(codeAcsii==53 || codeAcsii==54){
+            return "MIERCOLES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }if(codeAcsii==55 || codeAcsii==56){
+            return "JUEVES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }if(codeAcsii==57 || codeAcsii==48){
+            return "VIERNES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }
+    }
+
+        }
+        if(longitudPlaca>7){
+        if(codeAcsii>=48&&codeAcsii<=57){
+        if(codeAcsii==49 || codeAcsii==50){
+            return "LUNES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }if(codeAcsii==51 || codeAcsii==52){
+            return "MARTES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }if(codeAcsii==53 || codeAcsii==54){
+            return "MIERCOLES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }if(codeAcsii==55 || codeAcsii==56){
+            return "JUEVES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }if(codeAcsii==57 || codeAcsii==48){
+            return "VIERNES, FINES DE SEMANA Y FERIADOS LIBRE CIRCULACION";
+        }
+    }
+    }
 }

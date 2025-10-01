@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="juego.js"></script>
+    <script src="servicioJuegos.js"></script>
+    <script src="utilitarios.js"></script>
+    <link href="juego.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="principal">
+        <div class="contenedorImg">
+            <div class="img">
+        <div class="opciones"><label>PIEDRA</label></div>
+        <img src="./img/piedra.png" onclick="jugar('PIEDRA');" width="150px" class="imgEstilo"/>
+        <div class="puntosJugador"><label>PUNTOS:</label><label id="puntosUsuario">0</label></div>
+        </div>
+        <div class="img">
+        <div class="opciones"><label>PAPEL</label></div>
+        <img src="./img/papel.png" onclick="jugar('PAPEL');" width="150px" class="imgEstilo"/>
+        </div>
+        <div class="img">
+        <div class="opciones"><label>TIJERA</label></div>
+        <img src="./img/tijera.png" onclick="jugar('TIJERA');" width="150px" class="imgEstilo"/>
+        </div>
+        </div>
+        <div class="resultado" id="ganador">---</div>
+        <div class="opcionComputador">
+            <div class="opciones"><label>COMPUTADORA</label></div>
+            <img width="150px" src="" id="seleccionComputadora"/>
+            <div class="puntosComputador"><label>PUNTOS:</label><label id="puntosComputador">0</label></div>
+        </div>
+    </div>
+    <div class="reiniciar">
+        <input type="button" value="REINICIAR JUEGO" onclick="limpiar();" class="boton"/>
+    </div>
+</body>
+</html>

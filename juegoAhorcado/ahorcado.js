@@ -53,3 +53,21 @@ guardarPalabra=function(){
         console.log(txtCaja);
     }
 }
+mostrarLetra=function(letra,pocision){
+    if(pocision==0){
+        mostrarTexto("div0",letra);
+    }
+    if(pocision==1){
+        mostrarTexto("div1",letra);
+    }
+    if(pocision==2){
+        mostrarTexto("div2",letra);
+    }
+    if(pocision==3){
+        mostrarTexto("div3",letra);
+    }
+    if(pocision==4){
+        mostrarTexto("div4",letra);
+    }
+
+}

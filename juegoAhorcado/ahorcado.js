@@ -1,4 +1,12 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
+let letra1=false;
+let letra2=false;
+let letra3=false;
+let letra4=false;
+let letra5=false;
+let coincidencias=0;
+let intentos=0;
+let errores=0;
 let palabraSecreta;
 esMayuscula=function(caracter){
     if(caracter.charCodeAt(0)>=65 && caracter.charCodeAt(0)<=90){
@@ -74,7 +82,6 @@ mostrarLetra=function(letra,pocision){
 
 }
 validar=function(letra){
-    let letrasEncontradas=0;
     let caracter1;
     let caracter2;
     let caracter3;
@@ -97,35 +104,51 @@ validar=function(letra){
         if(pocision==4){
             caracter5=palabraSecreta.charAt(pocision)
         }
-        if(letra==caracter1 && pocision==0){
+        if(letra==caracter1 && pocision==0 && letra1== false){
             mostrarLetra(caracter1,pocision);
-            letrasEncontradas=letrasEncontradas+1
+            coincidencias+=1
+            letra1=true;
+
         }
-        if(letra==caracter2 && pocision==1){
+        if(letra==caracter2 && pocision==1 && letra2==false){
             mostrarLetra(caracter2,pocision);
-            letrasEncontradas=letrasEncontradas+1
+            coincidencias+=1
+            letra2=true;
         }
-        if(letra==caracter3 && pocision==2){
+        if(letra==caracter3 && pocision==2 && letra3==false){
             mostrarLetra(caracter3,pocision);
-            letrasEncontradas=letrasEncontradas+1
+            coincidencias+=1
+            letra3=true;
         }
-        if(letra==caracter4 && pocision==3){
+        if(letra==caracter4 && pocision==3 && letra4==false){
             mostrarLetra(caracter4,pocision);
-            letrasEncontradas=letrasEncontradas+1
+            coincidencias+=1
+            letra4=true;
         }
-        if(letra==caracter5 && pocision==4){
+        if(letra==caracter5 && pocision==4 && letra5==false){
             mostrarLetra(caracter5,pocision);
-            letrasEncontradas=letrasEncontradas+1
+            coincidencias+=1
+            letra5=true;
         }
         
+    }
+    if(letra!=caracter1&&letra!=caracter2&&letra!=caracter3&&letra!=caracter4&&letra!=caracter5){
+        alert("LA LETRA NO ES PARTE DE LA PALABRA");
+        errores+=1
     }
 
 
 }
 ingresarLetra=function(){
     let letra=recuperarTexto("txtLetra");
+    intentos+=1
     if(esMayuscula(letra)==true){
         validar(letra);
+        if(coincidencias==5){
+            alert("HA GANADO")
+        }else if(intentos==10){
+            alert("HA PERDIDO")
+        }
     }else{
         alert("SOLO SE ACEPTAN MAYUSCULAS");
     }

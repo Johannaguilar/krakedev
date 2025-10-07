@@ -81,7 +81,7 @@ validar=function(letra){
     let caracter4;
     let caracter5;
     
-    for(let pocision=0;pocision<letrasEncontradas.length;pocision++){
+    for(let pocision=0;pocision<palabraSecreta.length;pocision++){
         if(pocision==0){
             caracter1=palabraSecreta.charAt(pocision)
         }
@@ -97,28 +97,37 @@ validar=function(letra){
         if(pocision==4){
             caracter5=palabraSecreta.charAt(pocision)
         }
-        if(letras==caracter1 && pocision==0){
+        if(letra==caracter1 && pocision==0){
             mostrarLetra(caracter1,pocision);
             letrasEncontradas=letrasEncontradas+1
         }
-        if(letras==caracter2 && pocision==1){
+        if(letra==caracter2 && pocision==1){
             mostrarLetra(caracter2,pocision);
             letrasEncontradas=letrasEncontradas+1
         }
-        if(letras==caracter3 && pocision==2){
+        if(letra==caracter3 && pocision==2){
             mostrarLetra(caracter3,pocision);
             letrasEncontradas=letrasEncontradas+1
         }
-        if(letras==caracter4 && pocision==3){
+        if(letra==caracter4 && pocision==3){
             mostrarLetra(caracter4,pocision);
             letrasEncontradas=letrasEncontradas+1
         }
-        if(letras==caracter5 && pocision==4){
+        if(letra==caracter5 && pocision==4){
             mostrarLetra(caracter5,pocision);
             letrasEncontradas=letrasEncontradas+1
         }
         
     }
 
+
+}
+ingresarLetra=function(){
+    let letra=recuperarTexto("txtLetra");
+    if(esMayuscula(letra)==true){
+        validar(letra);
+    }else{
+        alert("SOLO SE ACEPTAN MAYUSCULAS");
+    }
 
 }

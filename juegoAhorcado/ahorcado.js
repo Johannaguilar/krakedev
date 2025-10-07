@@ -17,29 +17,29 @@ guardarPalabra=function(){
     let Mayusculas4=false;
     let Mayusculas5=false;
     if(largo==5){
-        for(let i=0;i<largo;i++){
-        letra=txtCaja.charAt(i)
-        if(i==0){
+        for(let pocision=0;pocision<largo;pocision++){
+        letra=txtCaja.charAt(pocision)
+        if(pocision==0){
             if(esMayuscula(letra)==true){
                 Mayusculas1=true;
             }
         }
-        if(i==1){
+        if(pocision==1){
             if(esMayuscula(letra)==true){
                 Mayusculas2=true;
             }
         }
-        if(i==2){
+        if(pocision==2){
             if(esMayuscula(letra)==true){
                 Mayusculas3=true;
             }
         }
-        if(i==3){
+        if(pocision==3){
             if(esMayuscula(letra)==true){
                 Mayusculas4=true;
             }
         }
-        if(i==4){
+        if(pocision==4){
             if(esMayuscula(letra)==true){
                 Mayusculas5=true;
             }
@@ -74,6 +74,51 @@ mostrarLetra=function(letra,pocision){
 
 }
 validar=function(letra){
+    let letrasEncontradas=0;
+    let caracter1;
+    let caracter2;
+    let caracter3;
+    let caracter4;
+    let caracter5;
     
+    for(let pocision=0;pocision<letrasEncontradas.length;pocision++){
+        if(pocision==0){
+            caracter1=palabraSecreta.charAt(pocision)
+        }
+        if(pocision==1){
+            caracter2=palabraSecreta.charAt(pocision)
+        }
+        if(pocision==2){
+            caracter3=palabraSecreta.charAt(pocision)
+        }
+        if(pocision==3){
+            caracter4=palabraSecreta.charAt(pocision)
+        }
+        if(pocision==4){
+            caracter5=palabraSecreta.charAt(pocision)
+        }
+        if(letras==caracter1 && pocision==0){
+            mostrarLetra(caracter1,pocision);
+            letrasEncontradas=letrasEncontradas+1
+        }
+        if(letras==caracter2 && pocision==1){
+            mostrarLetra(caracter2,pocision);
+            letrasEncontradas=letrasEncontradas+1
+        }
+        if(letras==caracter3 && pocision==2){
+            mostrarLetra(caracter3,pocision);
+            letrasEncontradas=letrasEncontradas+1
+        }
+        if(letras==caracter4 && pocision==3){
+            mostrarLetra(caracter4,pocision);
+            letrasEncontradas=letrasEncontradas+1
+        }
+        if(letras==caracter5 && pocision==4){
+            mostrarLetra(caracter5,pocision);
+            letrasEncontradas=letrasEncontradas+1
+        }
+        
+    }
+
 
 }

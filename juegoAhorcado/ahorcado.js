@@ -1,4 +1,5 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
+let txtCaja=recuperarTexto("txtSecreta");
 esMayuscula=function(caracter){
     if(caracter.charCodeAt(0)>=65 && caracter.charCodeAt(0)<=90){
         return true
@@ -8,7 +9,7 @@ esMayuscula=function(caracter){
 }
 guardarPalabra=function(){
     let letra
-    let txtCaja=recuperarTexto("txtSecreta");
+    
     let largo=txtCaja.length;
     let Mayusculas1=false;
     let Mayusculas2=false;
@@ -69,5 +70,9 @@ mostrarLetra=function(letra,pocision){
     if(pocision==4){
         mostrarTexto("div4",letra);
     }
+
+}
+validar=function(letra){
+    
 
 }

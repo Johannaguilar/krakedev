@@ -1,5 +1,5 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
-let txtCaja=recuperarTexto("txtSecreta");
+let palabraSecreta;
 esMayuscula=function(caracter){
     if(caracter.charCodeAt(0)>=65 && caracter.charCodeAt(0)<=90){
         return true
@@ -9,7 +9,7 @@ esMayuscula=function(caracter){
 }
 guardarPalabra=function(){
     let letra
-    
+    let txtCaja=recuperarTexto("txtSecreta");
     let largo=txtCaja.length;
     let Mayusculas1=false;
     let Mayusculas2=false;
@@ -51,6 +51,7 @@ guardarPalabra=function(){
     if(Mayusculas1==false || Mayusculas2==false || Mayusculas3==false||Mayusculas4==false||Mayusculas5==false){
         alert("DEBE SER UNA PALABRA DE 5 LETRAS MAYUSCULAS")
     }else{
+        palabraSecreta=txtCaja;
         console.log(txtCaja);
     }
 }

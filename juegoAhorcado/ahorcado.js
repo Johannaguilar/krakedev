@@ -144,13 +144,45 @@ ingresarLetra=function(){
     intentos+=1
     if(esMayuscula(letra)==true){
         validar(letra);
+        mostrarAhorcado();
         if(coincidencias==5){
-            alert("HA GANADO")
+            alert("HA GANADO");
         }else if(intentos==10){
-            alert("HA PERDIDO")
+            alert("HA PERDIDO");
+            mostrarImagen("ahorcadoImagen","AHORCADO_09.png");
         }
     }else{
         alert("SOLO SE ACEPTAN MAYUSCULAS");
+        
     }
 
+}
+mostrarAhorcado=function(){
+    if(errores==1){
+        mostrarImagen("ahorcadoImagen","AHORCADO_01.png");
+    }
+    if(errores==2){
+        mostrarImagen("ahorcadoImagen","AHORCADO_02.png");
+    }
+    if(errores==3){
+        mostrarImagen("ahorcadoImagen","AHORCADO_03.png");
+    }
+    if(errores==4){
+        mostrarImagen("ahorcadoImagen","AHORCADO_04.png");
+    }
+    if(errores==5){
+        mostrarImagen("ahorcadoImagen","AHORCADO_05.png");
+    }
+    if(errores==6){
+        mostrarImagen("ahorcadoImagen","AHORCADO_06.png");
+    }
+    if(errores==7){
+        mostrarImagen("ahorcadoImagen","AHORCADO_07.png");
+    }
+    if(errores==8){
+        mostrarImagen("ahorcadoImagen","AHORCADO_08.png");
+    }
+    if(errores==9){
+        mostrarImagen("ahorcadoImagen","AHORCADO_09.png");
+    }
 }

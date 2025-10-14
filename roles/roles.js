@@ -5,6 +5,24 @@ let empleados = [
 ]
 let esNuevo=false;
 
+ejecutarBusqueda=function(){
+    let cedula=recuperarTexto("txtBusquedaCedula");
+    let existeEmpleado=buscarEmpleado(cedula);
+    if(existeEmpleado==false){
+        alert("EMPLEADO NO EXISTE");
+    }else{
+        
+        mostrarComponente("txtNombre");
+        mostrarComponente("txtApellido");
+        mostrarComponente("txtSueldo");
+        ocultarComponente("txtCedula");
+
+        mostrarTextoEnCaja("txtCedula",existeEmpleado.cedula)
+        mostrarTextoEnCaja("txtNombre",existeEmpleado.nombre)
+        mostrarTextoEnCaja("txtApellido",existeEmpleado.apellido)
+        mostrarTextoEnCaja("txtSueldo",existeEmpleado.sueldo)
+    }
+}
 guardar=function(){
     let cedula=recuperarTexto("txtCedula");
     let nombre=recuperarTexto("txtNombre");
@@ -17,6 +35,7 @@ guardar=function(){
     let esNuevo=ejecutarNuevo();
     let empleado={}
     let nuevoEmpleado;
+    
     if(cedulaValida==false&&nombreValido==false&&apellidoValido==false&&sueldoValido==false){
         
         if(esNuevo==true){
@@ -32,13 +51,23 @@ guardar=function(){
         empleados.push(empleado)
         alert("EMPLEADO GUARDADO CORRECTAMENTE")
         mostrarEmpleados();
+        esNuevo=false;
         deshabilitarCajasYBoton();
     }
+    
     if(nuevoEmpleado==true){
         
         alert("YA EXISTE ESTE AMPLEADO:"+cedula)
+            let empleadoEncontrado=buscarEmpleado(cedula);
+            empleadoEncontrado.nombre=nombre;
+            empleadoEncontrado.apellido=apellido;
+            empleadoEncontrado.sueldoValido=sueldo;
+            mostrarEmpleados();
+            alert("EMPLEADO MODIFICADO EXITOSAMENTE");
+            deshabilitarCajasYBoton();
+        }
+        
 
-    }
     }
     
 }

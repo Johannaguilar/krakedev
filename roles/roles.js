@@ -3,6 +3,7 @@ let empleados = [
     {cedula:"0914632123",nombre:"Luisa",apellido:"Gonzalez",sueldo:900.0},
     {cedula:"3131313131",nombre:"Zoila",apellido:"Cerda",sueldo:250.0}
 ]
+let roles=[];
 let esNuevo=false;
 
 ejecutarBusqueda=function(){
@@ -135,6 +136,7 @@ mostrarOpcionRol=function(){
     mostrarComponente("divRol");
     ocultarComponente("divEmpleado");
     ocultarComponente("divResumen");
+    ocultarComponente("botonRol");
 }
 mostrarOpcionResumen=function(){
     mostrarComponente("divResumen");
@@ -148,7 +150,7 @@ buscarRol=function(){
         mostrarTexto("infoCedula",empleadoEncontrado.cedula);
         mostrarTexto("infoNombre",empleadoEncontrado.nombre+" "+empleadoEncontrado.apellido);
         mostrarTexto("infoSueldo",empleadoEncontrado.sueldo);
-
+        habilitarComponente("botonRol");
     }else{
         alert("EL EMPLEADO NO EXISTE");
     }
@@ -166,7 +168,49 @@ calcularRol=function(){
     let valorAPagar=calcularValorAPagar(sueldo,aporte,descuento)
     mostrarTexto("infoIESS",aporte);
     mostrarTexto("infoPago",valorAPagar);
+    mostrarComponente("botonRol");
 
+
+}
+buscarRol2=function(cedula){
+    let elementoClientes;
+    let empleadoEncontrado=null;
+for(let i=0;i<roles.length;i++){
+    elementoClientes=roles[i]
+    if(elementoClientes.cedula==cedula){
+            empleadoEncontrado=elementoClientes;
+            break;
+        }
+}
+return empleadoEncontrado;
+}
+agregarRol=function(rol){
+    let cedulaEmpleado=buscarRol2(rol.cedula);
+    if(cedulaEmpleado==null){
+        roles.push(rol);
+    }else{
+        alert("YA EXISTE ESTE ROL:"+rol.cedula)
+    }
+
+}
+calcularAporteEmpleador=function(sueldo){
+    return (sueldo*11.15)/100;
+}
+guardarRol=function(){
+    let cedula=recuperarTextoDiv("infoCedula");
+    let nombre=recuperarTextoDiv("infoNombre");
+    let sueldo=recuperarFloatDiv("infoSueldo");
+    let aporte=recuperarFloatDiv("infoIESS");
+    let valorAPagar=recuperarFloatDiv("infoPago");
+    let rol={};
+    rol.cedula=cedula;
+    rol.nombre=nombre;
+    rol.sueldo=sueldo;
+    rol.aporte=aporte;
+    rol.valorAPagar=valorAPagar;
+    agregarRol(rol);
+    alert("GUARDADO CON EXITO")
+    deshabilitarComponente("botonRol");
 
 }
 limpiar=function(){

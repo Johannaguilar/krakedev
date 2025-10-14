@@ -64,3 +64,10 @@ esMayuscula=function(caracter){
         return false
     }
 }
+deshabilitarCajasYBoton=function(){
+    ocultarComponente("txtCedula");
+        ocultarComponente("txtNombre");
+        ocultarComponente("txtApellido");
+        ocultarComponente("txtSueldo");
+        ocultarComponente("btnGuardar");
+}

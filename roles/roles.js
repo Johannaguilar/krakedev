@@ -26,25 +26,21 @@ guardar=function(){
         empleado.sueldo=sueldo;
         
         }
-        
-    }
     nuevoEmpleado=agregarEmpleado(empleado)
     
     if(nuevoEmpleado==false){
         empleados.push(empleado)
         alert("EMPLEADO GUARDADO CORRECTAMENTE")
         mostrarEmpleados();
-        ocultarComponente("txtCedula");
-        ocultarComponente("txtNombre");
-        ocultarComponente("txtApellido");
-        ocultarComponente("txtSueldo");
-        ocultarComponente("btnGuardar");
+        deshabilitarCajasYBoton();
     }
     if(nuevoEmpleado==true){
         
         alert("YA EXISTE ESTE AMPLEADO:"+cedula)
 
     }
+    }
+    
 }
 
 agregarEmpleado=function(empleado){
@@ -102,11 +98,7 @@ mostrarEmpleados=function(){
 mostrarOpcionEmpleado=function(){
     mostrarComponente("divEmpleado");
     ocultarComponente("divRol");
-    ocultarComponente("txtCedula");
-    ocultarComponente("txtNombre");
-    ocultarComponente("txtApellido");
-    ocultarComponente("txtSueldo");
-    ocultarComponente("btnGuardar");
+    deshabilitarCajasYBoton();
     ocultarComponente("divResumen");
     mostrarEmpleados();
 }

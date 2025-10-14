@@ -141,6 +141,18 @@ mostrarOpcionResumen=function(){
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
 }
+buscarRol=function(){
+    let cedula=recuperarTexto("txtBusquedaCedulaRol");
+    let empleadoEncontrado=buscarEmpleado(cedula);
+    if(empleadoEncontrado!=null){
+        mostrarTexto("infoCedula",empleadoEncontrado.cedula);
+        mostrarTexto("infoNombre",empleadoEncontrado.nombre+" "+empleadoEncontrado.apellido);
+        mostrarTexto("infoSueldo",empleadoEncontrado.sueldo);
+
+    }else{
+        alert("EL EMPLEADO NO EXISTE");
+    }
+}
 limpiar=function(){
     deshabilitarCajasYBoton();
     mostrarTextoEnCaja("txtCedula","");

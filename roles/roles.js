@@ -137,6 +137,7 @@ mostrarOpcionRol=function(){
     ocultarComponente("divEmpleado");
     ocultarComponente("divResumen");
     ocultarComponente("botonRol");
+    mostrarRoles();
 }
 mostrarOpcionResumen=function(){
     mostrarComponente("divResumen");
@@ -202,15 +203,61 @@ guardarRol=function(){
     let sueldo=recuperarFloatDiv("infoSueldo");
     let aporte=recuperarFloatDiv("infoIESS");
     let valorAPagar=recuperarFloatDiv("infoPago");
+    let aporteEmpleador=calcularAporteEmpleador(sueldo);
     let rol={};
     rol.cedula=cedula;
     rol.nombre=nombre;
     rol.sueldo=sueldo;
     rol.aporte=aporte;
     rol.valorAPagar=valorAPagar;
+    rol.aporteEmpleador=aporteEmpleador;
     agregarRol(rol);
+    
     alert("GUARDADO CON EXITO")
     deshabilitarComponente("botonRol");
+
+}
+mostrarRoles=function(){
+    
+    let cmpTabla=document.getElementById("tablaResumen");
+    let contenidoTabla="<table><tr>"+
+    "<th>CEDULA</th>"+
+    "<th>NOMBRE</th>"+
+    "<th>VALOR A PAGAR</th>"+
+    "<th>APORTE</th>"+
+    "<th>APORTE EMPLEADOR</th>"+
+    "</tr>";
+    let elementoClientes;
+    for(let i=0;i<roles.length;i++){
+    elementoClientes=roles[i]
+    contenidoTabla+=
+    "<tr><td>"+elementoClientes.cedula+"</td>"
+    +"<td>"+elementoClientes.nombre+"</td>"
+    +"<td>"+elementoClientes.valorAPagar+"</td>"
+    +"<td>"+elementoClientes.aporte+"</td>"
+    +"<td>"+elementoClientes.aporteEmpleador+"</td>"
+    +"</tr>"
+    }
+    contenidoTabla+="</table>"
+    cmpTabla.innerHTML=contenidoTabla;
+    mostrarTotales();
+}
+mostrarTotales=function(){
+    let totalAPagar=0;
+    let totalEmpleado=0;
+    let totalEmpleador=0;
+    let nomina=0;
+    for(let i=0;i<roles.length;i++){
+        
+        totalAPagar += roles[i].valorAPagar;
+        totalEmpleado += roles[i].aporte;
+        totalEmpleador += roles[i].aporteEmpleador;
+    }
+    nomina = totalAPagar + totalEmpleado + totalEmpleador;
+    mostrarTexto("infoTotalPago",totalAPagar);
+    mostrarTexto("infoAporteEmpresa",totalEmpleado);
+    mostrarTexto("infoAporteEmpleado",totalEmpleador);
+    mostrarTexto("infoNomina",nomina);
 
 }
 limpiar=function(){

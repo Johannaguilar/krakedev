@@ -71,3 +71,20 @@ deshabilitarCajasYBoton=function(){
         ocultarComponente("txtSueldo");
         ocultarComponente("btnGuardar");
 }
+recuperarTextoDiv=function(idComponente){
+    let componente;
+    let valorIngresado;
+    componente=document.getElementById(idComponente);
+    valorIngresado=componente.textContent;
+    return valorIngresado;
+}
+recuperarIntDiv=function(idComponente){
+    let valorTexto= recuperarTextoDiv(idComponente);
+    let valorEntero = parseInt(valorTexto);
+    return valorEntero;
+}
+recuperarFloatDiv=function(idComponente){
+    let valorTexto= recuperarTextoDiv(idComponente);
+    let valorFlotante = parseFloat(valorTexto);
+    return valorFlotante;
+}

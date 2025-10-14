@@ -34,6 +34,11 @@ guardar=function(){
         empleados.push(empleado)
         alert("EMPLEADO GUARDADO CORRECTAMENTE")
         mostrarEmpleados();
+        ocultarComponente("txtCedula");
+        ocultarComponente("txtNombre");
+        ocultarComponente("txtApellido");
+        ocultarComponente("txtSueldo");
+        ocultarComponente("btnGuardar");
     }
     if(nuevoEmpleado==true){
         

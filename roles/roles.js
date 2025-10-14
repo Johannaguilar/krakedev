@@ -61,7 +61,7 @@ guardar=function(){
             let empleadoEncontrado=buscarEmpleado(cedula);
             empleadoEncontrado.nombre=nombre;
             empleadoEncontrado.apellido=apellido;
-            empleadoEncontrado.sueldoValido=sueldo;
+            empleadoEncontrado.sueldo=sueldo;
             mostrarEmpleados();
             alert("EMPLEADO MODIFICADO EXITOSAMENTE");
             deshabilitarCajasYBoton();
@@ -140,4 +140,12 @@ mostrarOpcionResumen=function(){
     mostrarComponente("divResumen");
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
+}
+limpiar=function(){
+    deshabilitarCajasYBoton();
+    mostrarTextoEnCaja("txtCedula","");
+    mostrarTextoEnCaja("txtNombre","");
+    mostrarTextoEnCaja("txtApellido","");
+    mostrarTextoEnCaja("txtSueldo",0);
+    mostrarTextoEnCaja("txtBusquedaCedula","");
 }

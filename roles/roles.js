@@ -5,14 +5,73 @@ let empleados = [
 ]
 let esNuevo=false;
 
+guardar=function(){
+    let cedula=recuperarTexto("txtCedula");
+    let nombre=recuperarTexto("txtNombre");
+    let apellido=recuperarTexto("txtApellido");
+    let sueldo=recuperarFloat("txtSueldo");
+    let cedulaValida=validarCedula(cedula);
+    let nombreValido=validarNombre(nombre);
+    let apellidoValido=validarApellido(apellido);
+    let sueldoValido=validarSueldo(sueldo);
+    let esNuevo=ejecutarNuevo();
+    let empleado={}
+    let nuevoEmpleado;
+    if(cedulaValida==false&&nombreValido==false&&apellidoValido==false&&sueldoValido==false){
+        
+        if(esNuevo==true){
+        empleado.cedula=cedula;
+        empleado.nombre=nombre;
+        empleado.apellido=apellido;
+        empleado.sueldo=sueldo;
+        
+        }
+        
+    }
+    nuevoEmpleado=agregarEmpleado(empleado)
+    
+    if(nuevoEmpleado==false){
+        empleados.push(empleado)
+        alert("EMPLEADO GUARDADO CORRECTAMENTE")
+        mostrarEmpleados();
+    }
+    if(nuevoEmpleado==true){
+        
+        alert("YA EXISTE ESTE AMPLEADO:"+cedula)
 
+    }
+}
+
+agregarEmpleado=function(empleado){
+    let cedulaEmpleado=buscarEmpleado(empleado.cedula);
+    if(cedulaEmpleado==null){
+        return false;
+
+    }else{
+        return true;
+    }
+}
+
+buscarEmpleado=function(cedula){
+    let elementoClientes;
+    let empleadoEncontrado=null;
+for(let i=0;i<empleados.length;i++){
+    elementoClientes=empleados[i]
+    if(elementoClientes.cedula==cedula){
+            empleadoEncontrado=elementoClientes;
+            break;
+        }
+}
+return empleadoEncontrado;
+
+}
 ejecutarNuevo=function(){
-    esNuevo=true;
     mostrarComponente("txtCedula");
     mostrarComponente("txtNombre");
     mostrarComponente("txtApellido");
     mostrarComponente("txtSueldo");
     mostrarComponente("btnGuardar");
+    return esNuevo=true;
 }
 mostrarEmpleados=function(){
     let cmpTabla=document.getElementById("tablaEmpleados");

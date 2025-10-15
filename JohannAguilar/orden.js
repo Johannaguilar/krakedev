@@ -15,6 +15,25 @@ agregarPersona=function(){
         nuevaPersona.edad=edad;
         personas.push(nuevaPersona);
         alert("PERSONA AGREGADA CORRECTAMENTE: "+nuevaPersona.nombre+" "+nuevaPersona.edad)
+        mostrarPersonas();
     }
     
+}
+mostrarPersonas=function(){
+    let cmpTabla=document.getElementById("divTabla");
+    let contenidoTabla="<table><tr>"+
+    "<th>EDAD</th>"+
+    "<th>NOMBRE</th>"+
+    "</tr>";
+    let elementoClientes;
+    for(let i=0;i<personas.length;i++){
+    elementoClientes=personas[i]
+    contenidoTabla+=
+    "<tr><td>"+elementoClientes.edad+"</td>"
+    +"<td>"+elementoClientes.nombre+"</td>"
+    +"</tr>"
+    }
+    contenidoTabla+="</table>"
+    cmpTabla.innerHTML=contenidoTabla;
+
 }

@@ -7,8 +7,9 @@
     <script src="orden.js"></script>
     <script src="utilitarios.js"></script>
     <script src="validaciones.js"></script>
+    <link href="estilos.css" rel="stylesheet">
 </head>
-<body>
+<body onload="mostrarPersonas();">
     <div>
         <div class="contenedorRecoleccionInfo">
             <div>
@@ -21,6 +22,9 @@
             </div>
             <div>
                 <input type="button" value="guardar" onclick="agregarPersona();">
+            </div>
+            <div id="divTabla" class="divTabla">
+
             </div>
 
         </div>

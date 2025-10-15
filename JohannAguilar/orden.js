@@ -37,3 +37,15 @@ mostrarPersonas=function(){
     cmpTabla.innerHTML=contenidoTabla;
 
 }
+determinarMayor=function(){
+    encontrarMayor();
+}
+encontrarMayor=function(){
+    let personaMayor;
+    let elementoPersona;
+    for(i=1;i<personas.length;i++){
+        elementoPersona=personas[i];
+        console.log(elementoPersona.nombre,elementoPersona.edad);
+    }
+
+}

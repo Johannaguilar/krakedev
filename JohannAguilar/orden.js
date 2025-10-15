@@ -38,14 +38,41 @@ mostrarPersonas=function(){
 
 }
 determinarMayor=function(){
-    encontrarMayor();
+    let mayor=encontrarMayor();
+    let mensaje=mayor.nombre+" "+mayor.edad;
+    mostrarTexto("personaMayor",mensaje)
 }
 encontrarMayor=function(){
-    let personaMayor;
+    let personaMayor=personas[0];
     let elementoPersona;
     for(i=1;i<personas.length;i++){
         elementoPersona=personas[i];
         console.log(elementoPersona.nombre,elementoPersona.edad);
+        if(personaMayor.edad<elementoPersona.edad){
+            personaMayor=elementoPersona;
+        }
+        
     }
+    return personaMayor;
+
+}
+determinarMenor=function(){
+    let menor=encontrarmenor();
+    let mensaje=menor.nombre+" "+menor.edad;
+    mostrarTexto("personaMenor",mensaje)
+
+}
+encontrarmenor=function(){
+    let personaMenor=personas[0];
+    let elementoPersona;
+    for(i=1;i<personas.length;i++){
+        elementoPersona=personas[i];
+        console.log(elementoPersona.nombre,elementoPersona.edad);
+        if(personaMenor.edad>elementoPersona.edad){
+            personaMenor=elementoPersona;
+        }
+        
+    }
+    return personaMenor;
 
 }
